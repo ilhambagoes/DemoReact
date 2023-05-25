@@ -36,12 +36,15 @@ const App = () => {
         style={styles.textInput}
         placeholder="Pendapat tentang Seol In Ah ?"
       />
-      <Button
-        title="Pindah ke halaman 2"
-        onPress={() =>
-          showToastWithGravity()
-        }
-      />
+      <View
+        style={styles.buttonView}>
+        <Button
+          title="Pindah ke halaman 2"
+          onPress={() =>
+            showToastWithGravity()
+          }
+        />
+      </View>
     </ScrollView>
   );
 };
@@ -77,6 +80,10 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginHorizontal: 12,
     paddingStart: 12
+  },
+  buttonView: {
+    marginTop: 12,
+    marginHorizontal: 12
   }
 })
 
