@@ -12,7 +12,9 @@ import {
   Image,
   ScrollView,
   TextInput,
-  StyleSheet
+  StyleSheet,
+  Button,
+  ToastAndroid
 } from 'react-native';
 
 const App = () => {
@@ -31,16 +33,24 @@ const App = () => {
         />
       </View>
       <TextInput
-        style={{
-          height: 40,
-          borderColor: 'gray',
-          borderWidth: 1,
-          marginHorizontal: 12,
-          paddingStart: 12
-        }}
+        style={styles.textInput}
         placeholder="Pendapat tentang Seol In Ah ?"
       />
+      <Button
+        title="Pindah ke halaman 2"
+        onPress={() =>
+          showToastWithGravity()
+        }
+      />
     </ScrollView>
+  );
+};
+
+const showToastWithGravity = () => {
+  ToastAndroid.showWithGravity(
+    'Still Development',
+    ToastAndroid.SHORT,
+    ToastAndroid.CENTER,
   );
 };
 
@@ -60,6 +70,13 @@ const styles = StyleSheet.create({
     marginVertical: 12,
     marginHorizontal: 12,
     alignSelf: 'center'
+  },
+  textInput: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginHorizontal: 12,
+    paddingStart: 12
   }
 })
 

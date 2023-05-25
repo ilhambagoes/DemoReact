@@ -15,10 +15,10 @@ import {
   StyleSheet
 } from 'react-native';
 
-const App = () => {
+const About = () => {
   return (
     <ScrollView>
-      <Text style={styles.title}>Seol In Ah</Text>
+      <Text style={styles.title}>Seol In Ah 2</Text>
       <View>
         <Text style={styles.description}>
           Seol In-Ah, juga dikenal sebagai Seorina,
@@ -63,4 +63,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default App;
+export default About;
