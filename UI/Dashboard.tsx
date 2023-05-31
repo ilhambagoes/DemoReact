@@ -4,10 +4,12 @@ import {
     Text,
     Image,
     ScrollView,
-    StyleSheet
+    StyleSheet,
+    Button,
+    Pressable
 } from 'react-native';
 
-const Dashboard = () => {
+const Dashboard = ({navigation}: {navigation: any}) => {
     return (
         <ScrollView>
             <Text style={styles.title}>Kim Chae-won</Text>
@@ -21,6 +23,13 @@ const Dashboard = () => {
                     Ia adalah pemimpin dari grup idola wanita Le Sserafim. 
                     Ia berada di bawah kontrak Source Music, anak perusahaan dari Hybe Corporation.
                 </Text>
+                <Pressable
+                style={styles.button}
+                onPress={() =>
+                    navigation.navigate('About')
+                }>
+                    <Text style={styles.buttonTextColor}>Move to about page</Text>
+                </Pressable>
             </View>
         </ScrollView>
     );
@@ -44,6 +53,19 @@ const styles = StyleSheet.create({
         marginHorizontal: 12,
         textAlign: 'justify',
         color: 'black'
+    },
+    button: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingVertical: 12,
+        marginHorizontal: 12,
+        borderRadius: 4,
+        elevation: 3,
+        marginTop: 12,
+        backgroundColor: 'black'
+    },
+    buttonTextColor: {
+        color: 'white'
     }
 })
 
