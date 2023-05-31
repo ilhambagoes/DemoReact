@@ -5,7 +5,6 @@ import {
     Image,
     ScrollView,
     StyleSheet,
-    Button,
     Pressable
 } from 'react-native';
 
