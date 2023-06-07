@@ -14,7 +14,7 @@ const Dashboard = ({navigation}: {navigation: any}) => {
             <Text style={styles.title}>Kim Chae-won</Text>
             <View>
                 <Image
-                    source={{ uri: 'https://assets.ayobandung.com/crop/0x0:0x0/750x500/webp/photo/2023/05/07/Kim-Chaewon-3749888166.jpg' }}
+                    source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/0/0d/Kim_Chaewon_LE_SSERAFIM_220923.jpg' }}
                     style={styles.image}
                 />
                 <Text style={styles.description}>
@@ -22,6 +22,13 @@ const Dashboard = ({navigation}: {navigation: any}) => {
                     Ia adalah pemimpin dari grup idola wanita Le Sserafim. 
                     Ia berada di bawah kontrak Source Music, anak perusahaan dari Hybe Corporation.
                 </Text>
+                <Pressable
+                style={styles.button}
+                onPress={() =>
+                    navigation.navigate('About')
+                }>
+                    <Text style={styles.buttonTextColor}>Move to News Page</Text>
+                </Pressable>
                 <Pressable
                 style={styles.button}
                 onPress={() =>
