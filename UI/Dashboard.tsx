@@ -25,7 +25,7 @@ const Dashboard = ({navigation}: {navigation: any}) => {
                 <Pressable
                 style={styles.button}
                 onPress={() =>
-                    navigation.navigate('About')
+                    navigation.navigate('NewsPage')
                 }>
                     <Text style={styles.buttonTextColor}>Move to News Page</Text>
                 </Pressable>
