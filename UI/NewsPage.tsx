@@ -59,10 +59,17 @@ export default class App extends Component {
             //keyExtractor={({id}) => id}
             renderItem={({ item }) => (
               <View>
-                <Image
+                {item.urlToImage ? (
+                  <Image
                     source={{ uri: `${item.urlToImage}` }}
                     style={styles.image}
+                  />
+                ) : (
+                  <Image
+                    source={{ uri: 'https://widodaren.ngawikab.go.id/wp-content/uploads/2020/11/placeholder.png' }}
+                    style={styles.image}
                 />
+                )}
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.description}>{item.description}</Text>
               </View>
@@ -88,5 +95,5 @@ const styles = StyleSheet.create({
     marginVertical: 12,
     marginHorizontal: 12,
     alignSelf: 'center'
-}
+  }
 })
