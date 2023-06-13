@@ -1,33 +1,90 @@
-import React, { useEffect, useState } from 'react';
-import { View, Text } from 'react-native';
-import axios from 'axios';
+import React, { Component } from 'react';
+import { ActivityIndicator, FlatList, Text, View, Image, StyleSheet } from 'react-native';
 
+const URL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=f501615931a3413a9a5c6a0985679f88"
 
-const NewsPage = () => {
-  const [data, setData] = useState(null);
+type Articles = {
+  source: Source,
+  author: String,
+  title: String,
+  description: String,
+  url: String,
+  urlToImage: String,
+  publishedAt: String,
+  content: String
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://api.example.com/data');
-        setData(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+type Source = {
+  id: String,
+  name: String
+}
 
-    fetchData();
-  }, []);
-
-  return (
-    <View>
-      {data ? (
-        <Text>{data}</Text>
-      ) : (
-        <Text>Loading...</Text>
-      )}
-    </View>
-  );
+type AppState = {
+  data: Articles[];
+  isLoading: boolean;
 };
 
-export default NewsPage;
+export default class App extends Component {
+  state: AppState = {
+    data: [],
+    isLoading: true,
+  };
+
+  async getNews() {
+    try {
+      const response = await fetch(URL);
+      const json = await response.json();
+      this.setState({ data: json.articles });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      this.setState({ isLoading: false });
+    }
+  }
+
+  componentDidMount() {
+    this.getNews();
+  }
+
+  render() {
+    const { data, isLoading } = this.state;
+
+    return (
+      <View style={{ flex: 1, padding: 24 }}>
+        {isLoading ? (
+          <ActivityIndicator />
+        ) : (
+          <FlatList
+            data={data}
+            //keyExtractor={({id}) => id}
+            renderItem={({ item }) => (
+              <View>
+                <Image
+                    source={{ uri: `${item.urlToImage}` }}
+                    style={styles.image}
+                />
+                <Text style={styles.title}>{item.title}</Text>
+                <Text>{item.description}</Text>
+              </View>
+            )}
+          />
+        )}
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  title: {
+    marginTop: 12,
+    fontSize: 15,
+    color: 'black',
+  },
+  image: {
+    width: 200,
+    height: 200,
+    marginVertical: 12,
+    marginHorizontal: 12,
+    alignSelf: 'center'
+}
+})
