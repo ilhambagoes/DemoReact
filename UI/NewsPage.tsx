@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     color: 'black',
   },
   image: {
-    width: 200,
+    width: 500,
     height: 200,
     marginVertical: 12,
     marginHorizontal: 12,
