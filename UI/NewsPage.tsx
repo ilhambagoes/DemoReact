@@ -64,7 +64,7 @@ export default class App extends Component {
                     style={styles.image}
                 />
                 <Text style={styles.title}>{item.title}</Text>
-                <Text>{item.description}</Text>
+                <Text style={styles.description}>{item.description}</Text>
               </View>
             )}
           />
@@ -76,9 +76,11 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   title: {
-    marginTop: 12,
     fontSize: 15,
     color: 'black',
+  },
+  description: {
+    marginBottom: 12
   },
   image: {
     width: 500,
