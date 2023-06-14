@@ -8,7 +8,7 @@ import {
     Pressable
 } from 'react-native';
 
-const Dashboard = ({navigation}: {navigation: any}) => {
+const Dashboard = ({ navigation }: { navigation: any }) => {
     return (
         <ScrollView>
             <Text style={styles.title}>Kim Chae-won</Text>
@@ -18,22 +18,22 @@ const Dashboard = ({navigation}: {navigation: any}) => {
                     style={styles.image}
                 />
                 <Text style={styles.description}>
-                    Kim Chae-won adalah seorang penyanyi asal Korea Selatan. 
-                    Ia adalah pemimpin dari grup idola wanita Le Sserafim. 
+                    Kim Chae-won adalah seorang penyanyi asal Korea Selatan.
+                    Ia adalah pemimpin dari grup idola wanita Le Sserafim.
                     Ia berada di bawah kontrak Source Music, anak perusahaan dari Hybe Corporation.
                 </Text>
                 <Pressable
-                style={styles.button}
-                onPress={() =>
-                    navigation.navigate('NewsPage')
-                }>
+                    style={styles.button}
+                    onPress={() =>
+                        navigation.navigate('NewsPage')
+                    }>
                     <Text style={styles.buttonTextColor}>Move to News Page</Text>
                 </Pressable>
                 <Pressable
-                style={styles.button}
-                onPress={() =>
-                    navigation.navigate('About')
-                }>
+                    style={styles.button}
+                    onPress={() =>
+                        navigation.navigate('About')
+                    }>
                     <Text style={styles.buttonTextColor}>Move to about page</Text>
                 </Pressable>
             </View>
