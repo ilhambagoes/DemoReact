@@ -95,11 +95,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 15,
     color: 'black',
-    marginHorizontal: 12
+    marginHorizontal: 4
   },
   description: {
     marginBottom: 12,
-    marginHorizontal: 12
+    marginHorizontal: 4,
+    marginTop: 4
   },
   image: {
     width: 400,
